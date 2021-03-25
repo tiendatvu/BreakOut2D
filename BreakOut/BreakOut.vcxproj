@@ -69,14 +69,25 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>$(SolutionDir)Dependencies\glm;$(SolutionDir)Dependencies\OtherLibs;$(SolutionDir)Dependencies\glad\include;$(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\OtherLibs\Assimp\include\assimp;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)Dependencies\GLFW\lib-vc2017;$(SolutionDir)Dependencies\OtherLibs\Assimp;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86</LibraryPath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <ConformanceMode>true</ConformanceMode>
+      <ConformanceMode>false</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\OtherLibs\Assimp</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
+    <Link>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\OtherLibs\Assimp</AdditionalLibraryDirectories>
+      <AdditionalDependencies>assimpd.lib;opengl32.lib; glfw3.lib; glfw3dll.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Console</SubSystem>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -115,6 +126,70 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Dependencies\glad\src\glad.c" />
+    <ClCompile Include="Dependencies\OtherLibs\ShaderClass\Shader.cpp" />
+    <ClCompile Include="Dependencies\OtherLibs\ShaderClass\Shader1.cpp" />
+    <ClCompile Include="Dependencies\OtherLibs\stb_image.cpp" />
+    <ClCompile Include="src\16_Blending\E1_BlendingDiscard.cpp" />
+    <ClCompile Include="src\16_Blending\E2_BlendingSorted.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\ai_assert.h" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\anim.h" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\camera.h" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\cexport.h" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\cfileio.h" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\cimport.h" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\color4.h" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\Compiler\poppack1.h" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\Compiler\pstdint.h" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\Compiler\pushpack1.h" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\config.h" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\DefaultLogger.hpp" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\defs.h" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\Exporter.hpp" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\Importer.hpp" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\importerdesc.h" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\IOStream.hpp" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\IOSystem.hpp" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\light.h" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\Logger.hpp" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\LogStream.hpp" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\material.h" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\matrix3x3.h" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\matrix4x4.h" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\mesh.h" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\metadata.h" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\NullLogger.hpp" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\port\AndroidJNI\AndroidJNIIOSystem.h" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\postprocess.h" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\ProgressHandler.hpp" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\quaternion.h" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\scene.h" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\texture.h" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\types.h" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\vector2.h" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\vector3.h" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\version.h" />
+    <ClInclude Include="Dependencies\OtherLibs\CameraClass\Camera.h" />
+    <ClInclude Include="Dependencies\OtherLibs\MeshClass\mesh.h" />
+    <ClInclude Include="Dependencies\OtherLibs\MeshClass\mesh1.h" />
+    <ClInclude Include="Dependencies\OtherLibs\ModelClass\model.h" />
+    <ClInclude Include="Dependencies\OtherLibs\ShaderClass\Shader.h" />
+    <ClInclude Include="Dependencies\OtherLibs\ShaderClass\Shader1.h" />
+    <ClInclude Include="Dependencies\OtherLibs\stb_image.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Dependencies\OtherLibs\Assimp\include\assimp\color4.inl" />
+    <None Include="Dependencies\OtherLibs\Assimp\include\assimp\material.inl" />
+    <None Include="Dependencies\OtherLibs\Assimp\include\assimp\matrix3x3.inl" />
+    <None Include="Dependencies\OtherLibs\Assimp\include\assimp\matrix4x4.inl" />
+    <None Include="Dependencies\OtherLibs\Assimp\include\assimp\quaternion.inl" />
+    <None Include="Dependencies\OtherLibs\Assimp\include\assimp\vector2.inl" />
+    <None Include="Dependencies\OtherLibs\Assimp\include\assimp\vector3.inl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Dependencies\OtherLibs\README.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
