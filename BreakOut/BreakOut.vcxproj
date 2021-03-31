@@ -132,6 +132,7 @@
     <ClCompile Include="src\Utility\Game.cpp" />
     <ClCompile Include="src\Utility\ResourceManager.cpp" />
     <ClCompile Include="src\Utility\Shader.cpp" />
+    <ClCompile Include="src\Utility\sprite_renderer.cpp" />
     <ClCompile Include="src\Utility\Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -139,6 +140,7 @@
     <ClInclude Include="src\Utility\Game.h" />
     <ClInclude Include="src\Utility\ResourceManager.h" />
     <ClInclude Include="src\Utility\Shader.h" />
+    <ClInclude Include="src\Utility\sprite_renderer.h" />
     <ClInclude Include="src\Utility\Texture.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
