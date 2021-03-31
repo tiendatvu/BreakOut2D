@@ -23,7 +23,7 @@ Game::Game(unsigned int width, unsigned int height)
 
 Game::~Game()
 {
-
+    delete Renderer;
 }
 
 void Game::Init()
@@ -31,8 +31,8 @@ void Game::Init()
     char currentDir[maxDir];
     GetCurrentDirectoryA(maxDir, currentDir);
     // load shaders
-    std::string vsFile1 = "shaders/sprite.vs";
-    std::string frsFile1 = "shaders/sprite.frs";
+    std::string vsFile1 = "/src/Utility/shaders/sprite.vs";
+    std::string frsFile1 = "/src/Utility/shaders/sprite.frs";
     ResourceManager::LoadShader(currentDir + vsFile1, currentDir + frsFile1, "", "sprite");
     // configure shaders
     glm::mat4 projection = glm::ortho(0.0f, static_cast<float>(this->Width),

@@ -60,4 +60,8 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="src\Utility\shaders\sprite.vs" />
+    <None Include="src\Utility\shaders\sprite.frs" />
+  </ItemGroup>
 </Project>
