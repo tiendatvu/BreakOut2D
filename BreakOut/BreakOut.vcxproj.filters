@@ -39,6 +39,12 @@
     <ClCompile Include="src\Utility\sprite_renderer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Utility\game_object.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Utility\game_level.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Utility\Game.h">
@@ -59,9 +65,51 @@
     <ClInclude Include="src\Utility\sprite_renderer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\Utility\game_object.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Utility\game_level.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="src\Utility\shaders\sprite.vs" />
     <None Include="src\Utility\shaders\sprite.frs" />
+    <None Include="src\Utility\levels\one.lvl" />
+    <None Include="src\Utility\levels\four.lvl" />
+    <None Include="src\Utility\levels\three.lvl" />
+    <None Include="src\Utility\levels\two.lvl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resources\imgs\awesomeface.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\imgs\blending_transparent_window.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\imgs\container.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\imgs\container2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\imgs\container2_specular.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\imgs\grass.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\imgs\lighting_maps_specular_color.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\imgs\matrix.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\imgs\wall.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Dependencies\OtherLibs\README.txt" />
   </ItemGroup>
 </Project>

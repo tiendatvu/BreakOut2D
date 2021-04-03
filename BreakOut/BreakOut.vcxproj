@@ -130,6 +130,8 @@
     <ClCompile Include="Dependencies\OtherLibs\stb_image.cpp" />
     <ClCompile Include="src\Program\Program.cpp" />
     <ClCompile Include="src\Utility\Game.cpp" />
+    <ClCompile Include="src\Utility\game_level.cpp" />
+    <ClCompile Include="src\Utility\game_object.cpp" />
     <ClCompile Include="src\Utility\ResourceManager.cpp" />
     <ClCompile Include="src\Utility\Shader.cpp" />
     <ClCompile Include="src\Utility\sprite_renderer.cpp" />
@@ -138,14 +140,34 @@
   <ItemGroup>
     <ClInclude Include="Dependencies\OtherLibs\stb_image.h" />
     <ClInclude Include="src\Utility\Game.h" />
+    <ClInclude Include="src\Utility\game_level.h" />
+    <ClInclude Include="src\Utility\game_object.h" />
     <ClInclude Include="src\Utility\ResourceManager.h" />
     <ClInclude Include="src\Utility\Shader.h" />
     <ClInclude Include="src\Utility\sprite_renderer.h" />
     <ClInclude Include="src\Utility\Texture.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="src\Utility\levels\four.lvl" />
+    <None Include="src\Utility\levels\one.lvl" />
+    <None Include="src\Utility\levels\three.lvl" />
+    <None Include="src\Utility\levels\two.lvl" />
     <None Include="src\Utility\shaders\sprite.frs" />
     <None Include="src\Utility\shaders\sprite.vs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resources\imgs\awesomeface.png" />
+    <Image Include="Resources\imgs\blending_transparent_window.png" />
+    <Image Include="Resources\imgs\container.jpg" />
+    <Image Include="Resources\imgs\container2.png" />
+    <Image Include="Resources\imgs\container2_specular.png" />
+    <Image Include="Resources\imgs\grass.png" />
+    <Image Include="Resources\imgs\lighting_maps_specular_color.png" />
+    <Image Include="Resources\imgs\matrix.jpg" />
+    <Image Include="Resources\imgs\wall.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Dependencies\OtherLibs\README.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
