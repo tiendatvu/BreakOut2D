@@ -129,6 +129,7 @@
     <ClCompile Include="Dependencies\glad\src\glad.c" />
     <ClCompile Include="Dependencies\OtherLibs\stb_image.cpp" />
     <ClCompile Include="src\Program\Program.cpp" />
+    <ClCompile Include="src\Utility\ball_object.cpp" />
     <ClCompile Include="src\Utility\Game.cpp" />
     <ClCompile Include="src\Utility\game_level.cpp" />
     <ClCompile Include="src\Utility\game_object.cpp" />
@@ -139,6 +140,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Dependencies\OtherLibs\stb_image.h" />
+    <ClInclude Include="src\Utility\ball_object.h" />
     <ClInclude Include="src\Utility\Game.h" />
     <ClInclude Include="src\Utility\game_level.h" />
     <ClInclude Include="src\Utility\game_object.h" />
@@ -157,7 +159,10 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\imgs\awesomeface.png" />
+    <Image Include="Resources\imgs\background.jpg" />
     <Image Include="Resources\imgs\blending_transparent_window.png" />
+    <Image Include="Resources\imgs\block.png" />
+    <Image Include="Resources\imgs\block_solid.png" />
     <Image Include="Resources\imgs\container.jpg" />
     <Image Include="Resources\imgs\container2.png" />
     <Image Include="Resources\imgs\container2_specular.png" />

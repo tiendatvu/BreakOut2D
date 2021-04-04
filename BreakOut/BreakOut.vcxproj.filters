@@ -45,6 +45,9 @@
     <ClCompile Include="src\Utility\game_level.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Utility\ball_object.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Utility\Game.h">
@@ -69,6 +72,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Utility\game_level.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Utility\ball_object.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -106,6 +112,15 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="Resources\imgs\wall.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\imgs\background.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\imgs\block.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\imgs\block_solid.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
