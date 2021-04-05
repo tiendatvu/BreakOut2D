@@ -133,6 +133,7 @@
     <ClCompile Include="src\Utility\Game.cpp" />
     <ClCompile Include="src\Utility\game_level.cpp" />
     <ClCompile Include="src\Utility\game_object.cpp" />
+    <ClCompile Include="src\Utility\particle_generator.cpp" />
     <ClCompile Include="src\Utility\ResourceManager.cpp" />
     <ClCompile Include="src\Utility\Shader.cpp" />
     <ClCompile Include="src\Utility\sprite_renderer.cpp" />
@@ -144,6 +145,7 @@
     <ClInclude Include="src\Utility\Game.h" />
     <ClInclude Include="src\Utility\game_level.h" />
     <ClInclude Include="src\Utility\game_object.h" />
+    <ClInclude Include="src\Utility\particle_generator.h" />
     <ClInclude Include="src\Utility\ResourceManager.h" />
     <ClInclude Include="src\Utility\Shader.h" />
     <ClInclude Include="src\Utility\sprite_renderer.h" />
@@ -154,6 +156,8 @@
     <None Include="src\Utility\levels\one.lvl" />
     <None Include="src\Utility\levels\three.lvl" />
     <None Include="src\Utility\levels\two.lvl" />
+    <None Include="src\Utility\shaders\particle.frs" />
+    <None Include="src\Utility\shaders\particle.vs" />
     <None Include="src\Utility\shaders\sprite.frs" />
     <None Include="src\Utility\shaders\sprite.vs" />
   </ItemGroup>

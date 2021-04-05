@@ -48,6 +48,9 @@
     <ClCompile Include="src\Utility\ball_object.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Utility\particle_generator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Utility\Game.h">
@@ -77,6 +80,9 @@
     <ClInclude Include="src\Utility\ball_object.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\Utility\particle_generator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="src\Utility\shaders\sprite.vs" />
@@ -85,6 +91,8 @@
     <None Include="src\Utility\levels\four.lvl" />
     <None Include="src\Utility\levels\three.lvl" />
     <None Include="src\Utility\levels\two.lvl" />
+    <None Include="src\Utility\shaders\particle.vs" />
+    <None Include="src\Utility\shaders\particle.frs" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\imgs\awesomeface.png">

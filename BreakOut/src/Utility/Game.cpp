@@ -11,14 +11,15 @@
 #include "sprite_renderer.h"
 #include "game_object.h"
 #include "ball_object.h"
+#include "particle_generator.h"
 #include <windows.h>
 
 // Game-related State data
-SpriteRenderer  *Renderer;
-GameObject      *Player;
+SpriteRenderer      *Renderer;
+GameObject          *Player;
+BallObject          *Ball;
+ParticleGenerator   *Particles;
 const unsigned int maxDir = 260;
-
-BallObject     *Ball;
 
 Game::Game(unsigned int width, unsigned int height)
     : State(GAME_ACTIVE), Keys(), Width(width), Height(height)
@@ -29,11 +30,13 @@ Game::~Game()
 {
     delete Renderer;
     delete Player;
+    delete Ball;
+    delete Particles;
 }
 
 void Game::Init()
 {
-    try
+    //try
     {
         char currentDir[maxDir];
         GetCurrentDirectoryA(maxDir, currentDir);
@@ -41,12 +44,15 @@ void Game::Init()
         std::string vsFile1 = "/src/Utility/shaders/sprite.vs";
         std::string frsFile1 = "/src/Utility/shaders/sprite.frs";
         ResourceManager::LoadShader(currentDir + vsFile1, currentDir + frsFile1, "", "sprite");
+        std::string vsFile2 = "/src/Utility/shaders/particle.vs";
+        std::string frsFile2 = "/src/Utility/shaders/particle.frs";
+        ResourceManager::LoadShader(currentDir + vsFile2, currentDir + frsFile2, "", "particle");
         // configure shaders
         glm::mat4 projection = glm::ortho(0.0f, static_cast<float>(this->Width), static_cast<float>(this->Height), 0.0f, -1.0f, 1.0f);
         ResourceManager::GetShader("sprite").Use().SetInteger("image", 0);
         ResourceManager::GetShader("sprite").SetMatrix4("projection", projection);
-        // set render-specific controls
-        Renderer = new SpriteRenderer(ResourceManager::GetShader("sprite"));
+        ResourceManager::GetShader("particle").Use().SetInteger("sprite", 0);
+        ResourceManager::GetShader("particle").SetMatrix4("projection", projection);
         // load textures
         char imageFile[maxDir];
         std::strncpy(imageFile, currentDir, maxDir - 1);
@@ -64,6 +70,13 @@ void Game::Init()
         std::strncpy(imageFile, currentDir, maxDir - 1);
         std::strncat(imageFile, "/Resources/imgs/paddle.png", maxDir - strlen(imageFile) - 1);
         ResourceManager::LoadTexture(imageFile, true, "paddle");
+        std::strncpy(imageFile, currentDir, maxDir - 1);
+        std::strncat(imageFile, "/Resources/imgs/particle.png", maxDir - strlen(imageFile) - 1);
+        ResourceManager::LoadTexture(imageFile, true, "particle");
+        // set render-specific controls
+        Renderer = new SpriteRenderer(ResourceManager::GetShader("sprite"));
+        // load particles
+        Particles = new ParticleGenerator(ResourceManager::GetShader("particle"), ResourceManager::GetTexture("particle"), 500);
         // load levels
         char levelFile[maxDir];
         std::strncpy(levelFile, currentDir, maxDir - 1);
@@ -86,15 +99,14 @@ void Game::Init()
         // configure game objects
         glm::vec2 playerPos = glm::vec2(this->Width / 2.0f - PLAYER_SIZE.x / 2.0f, this->Height - PLAYER_SIZE.y);
         Player = new GameObject(playerPos, PLAYER_SIZE, ResourceManager::GetTexture("paddle"));
-
         // load ball texture
         glm::vec2 ballPos = playerPos + glm::vec2(PLAYER_SIZE.x / 2.0f - BALL_RADIUS, -BALL_RADIUS * 2.0f);
         Ball = new BallObject(ballPos, BALL_RADIUS, INITIAL_BALL_VELOCITY, ResourceManager::GetTexture("face"));
     }
-    catch (const std::exception& e)
-    {
-        int a = 1;
-    }
+//    catch (const std::exception& e)
+//    {
+//        int a = 1;
+//    }
 }
 
 void Game::Update(float dt)
@@ -103,6 +115,8 @@ void Game::Update(float dt)
     Ball->Move(dt, this->Width);
     // check for collisions
     this->DoCollisions();
+    // update particles
+    Particles->Update(dt, *Ball, 2, glm::vec2(Ball->Radius / 2.0f));
     // check loss condition
     if (Ball->Position.y >= this->Height) // did ball reach bottom edge?
     {
@@ -150,6 +164,8 @@ void Game::Render()
         this->Levels[this->Level].Draw(*Renderer);
         // draw player
         Player->Draw(*Renderer);
+        // draw particles	
+        Particles->Draw();
         // draw ball
         Ball->Draw(*Renderer);
     }
